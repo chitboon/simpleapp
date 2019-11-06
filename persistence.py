@@ -21,5 +21,14 @@ def create_member(first_name, last_name, gender, membership, remarks):
     u.membership = membership
     u.remarks = remarks
     members[u.id] = u
+    members.sync()
     return u
 
+
+# retrieve all users
+def get_all_members():
+    member_list = []
+    klist = list(members.keys())
+    for key in klist:
+        member_list.append(members[key])
+    return member_list
